@@ -1,0 +1,15 @@
+{
+"firstproject" :"First Project",
+"skico":"Skico",
+  "language": "Language",
+  "arabic": "Arabic",
+  "english": "English",
+  "theme": "Theme",
+  "dark": "Dark",
+  "light": "Light",
+  "map": "Map",
+  "home": "Home",
+  "love": "Love",
+  "profile": "Profile",
+  "welcome_back": "Welcome Back"
+}
