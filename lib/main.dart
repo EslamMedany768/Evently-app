@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:evantly_app/auth/create_account.dart';
 import 'package:evantly_app/auth/login.dart';
 import 'package:evantly_app/providers/App_theme_provider.dart';
+import 'package:evantly_app/providers/MainProvider.dart';
 import 'package:evantly_app/providers/firebase_provider.dart';
 import 'package:evantly_app/providers/user_provider.dart';
 import 'package:evantly_app/ui/home/addEventScreen/add_event.dart';
@@ -28,6 +29,7 @@ void main() async {
   // await FirebaseFirestore.instance.disableNetwork();
   runApp(MultiProvider(
     providers: [
+      ChangeNotifierProvider(create: (context) => MainProvider(),),
       ChangeNotifierProvider(create: (context) => UserProvider(),),
       ChangeNotifierProvider(
         create: (context) => FirebaseProvider(),

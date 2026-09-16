@@ -270,13 +270,17 @@ class _LoginState extends State<Login> {
             );
           },
         );
+        print("BEFORE FIREBASE");
         final credential = await FirebaseAuth.instance
             .signInWithEmailAndPassword(
                 email: emailController.text, password: passwordController.text);
+        print("after FIREBASE");
         MyUser? user =
             await FirebaseUtils.readUserFromFireStore(credential.user!.uid);
         if (user == null) {
+          print("user is equal null");
           return;
+
         }
         var userProvider = Provider.of<UserProvider>(context, listen: false);
         userProvider.updateUser(user);
@@ -290,6 +294,8 @@ class _LoginState extends State<Login> {
         } else if (e.code == 'wrong-password') {
           print('Wrong password provided for that user.');
         }
+      }catch(e){
+        print("error____________$e");
       }
     }
   }

@@ -35,6 +35,7 @@ class _HomeScreenState extends State<ProfileScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(65))),
         backgroundColor: AppColors.blue,

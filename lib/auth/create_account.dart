@@ -203,19 +203,15 @@ class _CreateAccount extends State<CreateAccount> {
           context: context,
           builder: (context) {
             return AlertDialog(
-
               content: Row(
                 children: [
-
-
-                  CircularProgressIndicator(padding: EdgeInsets.all(22),
-
-                                  color: AppColors.blue,
-                                ),
+                  CircularProgressIndicator(
+                    padding: EdgeInsets.all(22),
+                    color: AppColors.blue,
+                  ),
                   Text("Loading..."),
                 ],
               ),
-
             );
           },
         );
@@ -246,7 +242,7 @@ class _CreateAccount extends State<CreateAccount> {
           print('The account already exists for that email.');
         }
       } catch (e) {
-        print(e);
+        print("error============$e");
       }
     }
   }
