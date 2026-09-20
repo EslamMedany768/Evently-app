@@ -7,7 +7,10 @@ class Event {
   String description;
   String Time;
   DateTime history;
-  bool isfav ;
+  String address;
+  String lat;
+  String long;
+  bool isfav;
 
   Event(
       {this.id = "",
@@ -16,8 +19,11 @@ class Event {
       required this.title,
       required this.description,
       required this.Time,
+      this.address = "",
+      this.lat = "",
+      this.long = "",
       required this.history,
-      this.isfav= false });
+      this.isfav = false});
 
   //json=>object
   Event.fromFireStore(Map<String, dynamic> data)
@@ -29,6 +35,9 @@ class Event {
             eventName: data["eventName"],
             Time: data["time"]!,
             title: data["title"],
+            address: data["address"]??"",
+            lat: data["lat"]??"",
+            long: data["long"]??"",
             isfav: data["isfav"]);
 
   //object=>json
@@ -41,6 +50,9 @@ class Event {
       "description": description,
       "time": Time,
       "history": history.millisecondsSinceEpoch,
+      "address": address,
+      "lat": lat,
+      "long": long,
       "isfav": isfav,
     };
   }

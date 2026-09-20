@@ -7,8 +7,8 @@
         android:label="evantly_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-<!--        <meta-data android:name="com.google.android.geo.API_KEY"-->
-<!--            android:value="AIzaSyADkY54Jid-p2jbdcmCgwAN4pGPGvLqm8g"/>-->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyADkY54Jid-p2jbdcmCgwAN4pGPGvLqm8g"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

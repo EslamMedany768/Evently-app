@@ -1,6 +1,7 @@
 import 'package:evantly_app/providers/MainProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 import 'package:provider/provider.dart';
 
 class MapScreen extends StatefulWidget {
@@ -18,19 +19,31 @@ class _MapScreenState extends State<MapScreen> {
     // TODO: implement initState
     super.initState();
     mainProvider = Provider.of<MainProvider>(context, listen: false);
-    mainProvider.getLocation();
+    loadLocation();
+  }
+
+  loadLocation() async {
+    await mainProvider.getLocation();
+    mainProvider.cameraAnimateToNewLocation(LatLng(
+        mainProvider.locationData.latitude,
+        mainProvider.locationData.longitude));
   }
 
   @override
   Widget build(BuildContext context) {
     mainProvider = Provider.of<MainProvider>(context);
+
     return Column(
-        children: [
-          Expanded(
-              child:
-                  GoogleMap(initialCameraPosition: mainProvider.cameraPosition))
-        ],
-      )
-    ;
+      children: [
+        Expanded(
+            child: GoogleMap(
+          markers: mainProvider.marker,
+          initialCameraPosition: mainProvider.cameraPosition,
+          onMapCreated: (controller) {
+            mainProvider.mapController = controller;
+          },
+        ))
+      ],
+    );
   }
 }

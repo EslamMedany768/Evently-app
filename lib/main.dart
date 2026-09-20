@@ -7,6 +7,7 @@ import 'package:evantly_app/providers/firebase_provider.dart';
 import 'package:evantly_app/providers/user_provider.dart';
 import 'package:evantly_app/ui/home/addEventScreen/add_event.dart';
 import 'package:evantly_app/ui/home/addEventScreen/event_details.dart';
+import 'package:evantly_app/ui/home/addEventScreen/pick_event_location.dart';
 import 'package:evantly_app/ui/tabs/widget/edit_event.dart';
 import 'package:evantly_app/ui/home/home_screen.dart';
 import 'package:evantly_app/ui/tabs/profile_screen/profile_screen.dart';
@@ -29,8 +30,12 @@ void main() async {
   // await FirebaseFirestore.instance.disableNetwork();
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (context) => MainProvider(),),
-      ChangeNotifierProvider(create: (context) => UserProvider(),),
+      ChangeNotifierProvider(
+        create: (context) => MainProvider(),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => UserProvider(),
+      ),
       ChangeNotifierProvider(
         create: (context) => FirebaseProvider(),
       ),
@@ -60,6 +65,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: Login.routeName,
       routes: {
+        PickEventLocationScreen.routeName: (context) => PickEventLocationScreen(),
         AddEventScreen.routeName: (context) => AddEventScreen(),
         EventDetails.routeName: (context) => EventDetails(),
         EditEvent.routeName: (context) => EditEvent(),

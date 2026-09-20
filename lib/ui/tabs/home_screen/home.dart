@@ -36,6 +36,8 @@ class _HomeState extends State<Home> {
         automaticallyImplyLeading: false,
         toolbarHeight: height * 0.11,
         backgroundColor: AppColors.blue,
+        scrolledUnderElevation: 0,
+        elevation: 0,
         title: Column(
           children: [
             Row(
