@@ -7,6 +7,7 @@ import 'package:location/location.dart';
 class MainProvider extends ChangeNotifier {
   late LocationData locationData;
   String permissionMessage = "";
+   Set<Circle> circles={};
   Location location = Location();
 
 

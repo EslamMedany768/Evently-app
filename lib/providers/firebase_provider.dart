@@ -63,7 +63,7 @@ class FirebaseProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeSelectedIndex(int index,String uId) {
+   changeSelectedIndex(int index,String uId) {
     selectedIndex = index;
     if (selectedIndex == 0) {
       getAllEvent(uId);

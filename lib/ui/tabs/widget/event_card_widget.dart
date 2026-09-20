@@ -69,12 +69,16 @@ class _EventCardWidgetState extends State<EventCardWidget> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: width * 0.02),
-                      child: Text(
-                        "${widget.event.title}",
-                        style: AppStyle.bold14blue
-                            .copyWith(color: Colors.black, fontSize: 20),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: width * 0.02),
+                        child: Expanded(
+                          child: Text(maxLines: 1,
+                            "${widget.event.title}",
+                            style: AppStyle.bold14blue
+                                .copyWith(color: Colors.black, fontSize: 20),
+                          ),
+                        ),
                       ),
                     ),
                     IconButton(

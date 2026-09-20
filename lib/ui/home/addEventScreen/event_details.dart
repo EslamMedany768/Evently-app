@@ -99,7 +99,7 @@ class _EventDetails extends State<EventDetails> {
                     height: height * 0.02,
                   ),
                   calenderOrLocationWidget(
-                      args, width, Icons.my_location, "Cairo , Egypt", false),
+                      args, width, Icons.my_location, args.address, false),
                   SizedBox(
                     height: height * 0.22,
                   ),

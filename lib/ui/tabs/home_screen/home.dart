@@ -23,10 +23,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    var userProvider=Provider.of<UserProvider>(context);
+    var userProvider = Provider.of<UserProvider>(context);
     var eventListProvider = Provider.of<FirebaseProvider>(context);
     if (eventListProvider.eventList.isEmpty) {
-      eventListProvider.getAllEvent(userProvider.currentUser?.id??"69");
+      eventListProvider.getAllEvent(userProvider.currentUser?.id ?? "69");
     }
 
     var height = MediaQuery.of(context).size.height;
@@ -51,7 +51,7 @@ class _HomeState extends State<Home> {
                       style: AppStyle.w40014white,
                     ),
                     Text(
-                      userProvider.currentUser?.name??"",
+                      userProvider.currentUser?.name ?? "",
                       style: AppStyle.bold24white,
                     )
                   ],
@@ -121,8 +121,10 @@ class _HomeState extends State<Home> {
                     initialIndex: eventListProvider.selectedIndex,
                     length: eventListProvider.eventTitle.length,
                     child: TabBar(
-                        onTap: (value) {
-                          eventListProvider.changeSelectedIndex(value,userProvider.currentUser!.id);
+                        onTap: (value) async {
+                          eventListProvider.changeSelectedIndex(
+                              value, userProvider.currentUser!.id);
+
                           setState(() {});
                         },
                         labelPadding: EdgeInsets.only(left: 10),
@@ -145,7 +147,13 @@ class _HomeState extends State<Home> {
             ),
           ),
           eventListProvider.filterList.isEmpty
-              ? Center(child: Text("no items added"))
+              ? Expanded(
+                  child: Center(
+                  child: Text(
+                    "No item added, yet",
+                    style: AppStyle.bold20blue,
+                  ),
+                ))
               : Expanded(
                   child: ListView.builder(
                     itemCount: eventListProvider.filterList.length,
