@@ -70,14 +70,13 @@ class _EventCardWidgetState extends State<EventCardWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: width * 0.02),
-                        child: Expanded(
-                          child: Text(maxLines: 1,
-                            "${widget.event.title}",
-                            style: AppStyle.bold14blue
-                                .copyWith(color: Colors.black, fontSize: 20),
-                          ),
+                      child: Expanded(
+
+                        child: Text(maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          " ${widget.event.title}",
+                          style: AppStyle.bold14blue
+                              .copyWith(color: Colors.black, fontSize: 20),
                         ),
                       ),
                     ),

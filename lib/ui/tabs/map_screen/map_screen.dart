@@ -48,7 +48,7 @@ class _MapScreenState extends State<MapScreen> {
             center: LatLng(double.parse(event.lat), double.parse(event.long)));
       },
     ).toSet();
-    print(mainProvider.circles.first.center);
+
   }
 
   loadLocation() async {

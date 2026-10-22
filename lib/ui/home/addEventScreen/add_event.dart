@@ -217,6 +217,7 @@ class _AddEventScreenState extends State<AddEventScreen> {
                                 "${placemarks[0].subThoroughfare},${placemarks[0].locality},${placemarks[0].country}";
                           } catch (e) {
                             address = "";
+                            print(e.toString());
                           }
 
                           print("$address");

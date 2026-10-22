@@ -55,14 +55,14 @@ class _HomeScreenState extends State<ProfileScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "John Safwat",
+                    userProvider.currentUser!.name,
                     style: AppStyle.bold24white,
                   ),
                   SizedBox(
                     height: 5,
                   ),
                   Text(
-                    "johnsafwat.route@gmail.com",
+                    userProvider.currentUser!.email,
                     style: AppStyle.medium14white,
                   )
                 ],
